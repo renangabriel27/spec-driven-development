@@ -1,165 +1,165 @@
-# Spec-Driven Development: Site Fretadão
+# Spec-Driven Development: Fretadão Site
 
-Este repositório foi criado para uma **Tech Talk interna da Fretadão** sobre **Spec-Driven Development (SDD)**. O objetivo é mostrar, com um caso real e completo, como sair de um design aprovado e chegar a uma aplicação testada usando especificações como guia do trabalho com IA (Claude Code).
+This repository was built for an **internal Fretadão Tech Talk** on **Spec-Driven Development (SDD)**. It walks through a real, complete example: starting from an approved design and ending with a tested application, with specifications guiding the AI-assisted work in Claude Code.
 
-O site em si, o **`fretadao-site/`**, é o exemplo prático da apresentação: uma homepage institucional da Fretadão construída de ponta a ponta pelo fluxo PRD → Tech Spec → Tasks → Implementação → Review → QA. Cada etapa deixou seu artefato versionado em `tasks/prd-site-fretadao/`, então dá para acompanhar como cada documento alimentou o seguinte.
+The site itself, **`fretadao-site/`**, is the hands-on example for the talk. It's a Fretadão institutional homepage built end to end through the PRD → Tech Spec → Tasks → Implementation → Review → QA flow. Every step left a versioned artifact in `tasks/prd-site-fretadao/`, so you can follow how each document fed into the next.
 
-## Por que Spec-Driven Development
+## Why Spec-Driven Development
 
-Em vez de pedir código direto para a IA, o SDD escreve primeiro **o que** precisa ser feito (PRD) e **como** (Tech Spec). Depois quebra o trabalho em tarefas pequenas e verificáveis. Na prática, isso traz:
+SDD doesn't start by asking the AI for code. You first write down **what** needs to be built (PRD) and **how** (Tech Spec), then split the work into small tasks that can each be verified. What you get out of it:
 
-- **Contexto explícito:** a IA trabalha a partir de documentos revisados por pessoas, não de um prompt solto.
-- **Rastreabilidade:** cada requisito do PRD aparece na Tech Spec, nas tasks, nos testes e no relatório de QA.
-- **Pontos de aprovação:** cada fase para e espera validação antes de seguir.
-- **Qualidade verificável:** cada task traz testes, e review e QA fecham o ciclo com evidências.
+- **Explicit context:** the AI works from documents that people have reviewed, not from a one-off prompt.
+- **Traceability:** every PRD requirement shows up in the Tech Spec, the tasks, the tests and the QA report.
+- **Approval checkpoints:** each phase stops and waits for sign-off before moving on.
+- **Verifiable quality:** every task ships with tests, and review and QA close the loop with evidence.
 
-> Este não é o site oficial da Fretadão: é material didático. Conteúdo e design servem só para ilustrar o processo.
+> This is not Fretadão's official website. It's teaching material, and its content and design only illustrate the process.
 
-## O `fretadao-site`
+## The `fretadao-site`
 
-Landing page one-page de mobilidade corporativa, pensada para RH e gestores de empresas. Ela comunica a proposta de valor da Fretadão, apresenta as quatro soluções do ecossistema (Passageiro, Gestão, Transportador e RH) e leva o visitante ao CTA principal, **"Agendar reunião"**. É um site estático: sem backend, sem login e sem formulários.
+A one-page corporate mobility landing page aimed at HR teams and company managers. It presents Fretadão's value proposition and the four solutions in its ecosystem (Passenger, Management, Transport Operator and HR), and it leads visitors to the main CTA, **"Agendar reunião"** ("Book a meeting"). The site is fully static, with no backend, login or forms. Its content is in Brazilian Portuguese.
 
-![Hero do site no desktop](docs/screenshots/desktop-hero.png)
+![Site hero on desktop](docs/screenshots/desktop-hero.png)
 
-### Telas
+### Screens
 
 <table>
   <tr>
-    <td width="70%"><img src="docs/screenshots/section-solucoes.png" alt="Seção Quatro experiências, um só ecossistema"></td>
-    <td width="30%" rowspan="2"><img src="docs/screenshots/mobile-hero.png" alt="Hero no mobile"></td>
+    <td width="70%"><img src="docs/screenshots/section-solucoes.png" alt="Solutions section: four experiences, one ecosystem"></td>
+    <td width="30%" rowspan="2"><img src="docs/screenshots/mobile-hero.png" alt="Hero on mobile"></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/section-como-funciona.png" alt="Seção Como funciona"></td>
+    <td><img src="docs/screenshots/section-como-funciona.png" alt="How it works section"></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/section-por-que-fretadao.png" alt="Seção Por que Fretadão"></td>
-    <td><img src="docs/screenshots/section-contato.png" alt="CTA final Agendar reunião"></td>
+    <td><img src="docs/screenshots/section-por-que-fretadao.png" alt="Why Fretadão section"></td>
+    <td><img src="docs/screenshots/section-contato.png" alt="Final book-a-meeting CTA"></td>
   </tr>
 </table>
 
 <details>
-<summary>Página completa (desktop)</summary>
+<summary>Full page (desktop)</summary>
 
-![Página completa no desktop](docs/screenshots/desktop-full.png)
+![Full page on desktop](docs/screenshots/desktop-full.png)
 
 </details>
 
-### Do design ao código
+### From design to code
 
-O ponto de partida da Tech Talk foi o design aprovado em [`site/`](site/). Colocar os dois lado a lado mostra o que as specs preservaram (estrutura, textos e CTAs) e onde houve adaptação (paleta e detalhes do card de rota):
+The talk starts from the approved design in [`site/`](site/). Putting the design next to the implementation shows what the specs kept (structure, copy and CTAs) and where things were adapted (color palette and details of the route card):
 
-| Design aprovado | Implementado |
-|-----------------|--------------|
-| ![Design do hero](site/01-hero.jpg) | ![Hero implementado](docs/screenshots/desktop-hero.png) |
+| Approved design | Implementation |
+|-----------------|----------------|
+| ![Hero design](site/01-hero.jpg) | ![Implemented hero](docs/screenshots/desktop-hero.png) |
 
-As capturas ficam em `docs/screenshots/` e foram geradas com Playwright: desktop em 1440×900 e mobile em 390×844.
+The screenshots live in `docs/screenshots/` and were captured with Playwright, at 1440×900 for desktop and 390×844 for mobile.
 
-**Status:** as três tasks foram concluídas e o QA foi aprovado. Os 28 requisitos do PRD foram atendidos e 48 testes E2E passaram. Veja [`qa-report.md`](tasks/prd-site-fretadao/qa-report.md).
+**Status:** all three tasks are done and QA passed. All 28 PRD requirements were met and all 48 E2E tests passed. See [`qa-report.md`](tasks/prd-site-fretadao/qa-report.md).
 
-### Seções da página
+### Page sections
 
-Montadas em `src/App.tsx`, nesta ordem:
+`src/App.tsx` renders the sections in this order:
 
-1. `Header`: logo, navegação por âncoras (Soluções, Como funciona, Para o RH, Contato) e CTA
-2. `HeroSection`: headline, CTAs e o widget "Sua rota de hoje"
-3. `SocialProofSection`: segmentos atendidos (Indústria, Logística, Varejo, Serviços)
-4. `SolutionsSection`: as quatro experiências do ecossistema
-5. `HowItWorksSection`: Diagnóstico, Implantação e Operação
-6. `WhyFretadaoSection`: Tecnologia, Logística e Cuidado
-7. `ManifestoSection`: citação em destaque
-8. `CtaSection`: chamada final para agendar reunião
+1. `Header`: logo, anchor navigation (Soluções, Como funciona, Para o RH, Contato) and the CTA
+2. `HeroSection`: headline, CTAs and the "Sua rota de hoje" ("Your route today") widget
+3. `SocialProofSection`: industries served (Indústria, Logística, Varejo, Serviços)
+4. `SolutionsSection`: the four experiences in the ecosystem
+5. `HowItWorksSection`: Diagnosis, Rollout and Operations
+6. `WhyFretadaoSection`: Technology, Logistics and Care
+7. `ManifestoSection`: highlighted quote
+8. `CtaSection`: final call to book a meeting
 9. `Footer`
 
 ### Stack
 
-| Camada | Tecnologia |
-|--------|------------|
+| Layer | Technology |
+|-------|------------|
 | Build / dev server | Vite 8 |
 | UI | React 19 + TypeScript 6 (`strict`) |
-| Estilo | Tailwind CSS 4 + tokens em `src/theme/` |
-| Ícones | `lucide-react` |
-| Testes unitários | Vitest 4 + React Testing Library (jsdom) |
-| Testes E2E | Playwright (Chromium) |
-| Lint | ESLint 10 + typescript-eslint |
+| Styling | Tailwind CSS 4 + design tokens in `src/theme/` |
+| Icons | `lucide-react` |
+| Unit tests | Vitest 4 + React Testing Library (jsdom) |
+| E2E tests | Playwright (Chromium) |
+| Linting | ESLint 10 + typescript-eslint |
 
-### Rodando localmente
+### Running locally
 
 ```bash
 cd fretadao-site
 npm install
-echo "VITE_BOOKING_URL=https://link-de-agendamento" > .env.local
+echo "VITE_BOOKING_URL=https://your-booking-link" > .env.local
 npm run dev            # http://localhost:5173
 ```
 
-| Variável | Descrição |
-|----------|-----------|
-| `VITE_BOOKING_URL` | URL da ferramenta de agendamento usada pelos botões "Agendar reunião". Sem ela, os botões caem no fallback `#contato`. |
+| Variable | Description |
+|----------|-------------|
+| `VITE_BOOKING_URL` | URL of the scheduling tool used by every "Agendar reunião" button. If it's not set, the buttons fall back to `#contato`. |
 
 ### Scripts
 
-| Comando | O que faz |
-|---------|-----------|
-| `npm run dev` | Servidor de desenvolvimento |
-| `npm run build` | Checagem de tipos (`tsc -b`) + build estático em `dist/` |
-| `npm run preview` | Serve o build gerado |
-| `npm run lint` | ESLint |
-| `npm test` | Testes unitários (Vitest) |
-| `npm run test:e2e` | Testes E2E em `e2e/` (sobe o `vite` automaticamente) |
+| Command | What it does |
+|---------|--------------|
+| `npm run dev` | Starts the dev server |
+| `npm run build` | Type-checks (`tsc -b`) and builds static files into `dist/` |
+| `npm run preview` | Serves the production build |
+| `npm run lint` | Runs ESLint |
+| `npm test` | Runs unit tests (Vitest) |
+| `npm run test:e2e` | Runs the E2E tests in `e2e/` and starts `vite` automatically |
 
-Antes do primeiro E2E, instale os navegadores com `npx playwright install chromium`.
+Before running E2E tests for the first time, install the browser with `npx playwright install chromium`.
 
-### Estrutura
+### Structure
 
 ```
 fretadao-site/
   e2e/                     # homepage.spec.ts, qa-full.spec.ts
-  public/                  # favicon e sprites de ícones
+  public/                  # favicon and icon sprites
   src/
-    theme/                 # tokens de cor, tipografia e espaçamento
-    constants/             # strings, navegação e env (bookingUrl)
-    types/                 # tipos de conteúdo
+    theme/                 # color, typography and spacing tokens
+    constants/             # strings, navigation and env (bookingUrl)
+    types/                 # content types
     components/
-      ui/                  # primitivos: Button, Card, SectionLabel, RouteWidget
+      ui/                  # primitives: Button, Card, SectionLabel, RouteWidget
       layout/              # Header, Footer
-      sections/            # uma seção da página por arquivo
-    App.tsx                # composição das seções
+      sections/            # one page section per file
+    App.tsx                # composes the sections
 ```
 
-Imports usam o alias `@/` → `src/`.
+Imports use the `@/` → `src/` alias.
 
-## Estrutura do repositório
+## Repository structure
 
 ```
 .claude/
-  agents/      # task-reviewer: revisa cada task concluída
-  commands/    # comandos do fluxo SDD
-  rules/       # padrões: git, testes, segurança, frontend, debug, TypeScript
-site/          # design aprovado (screenshots de referência de cada seção)
-templates/     # templates de PRD, Tech Spec, tasks e task
+  agents/      # task-reviewer: reviews each finished task
+  commands/    # SDD flow commands
+  rules/       # standards: git, testing, security, frontend, debug, TypeScript
+site/          # approved design (reference screenshots for each section)
+templates/     # PRD, Tech Spec, tasks and task templates
 tasks/
   prd-site-fretadao/
     prd.md, techspec.md, tasks.md, N_task.md
     N_task_review.md, review-report.md, qa-report.md
-fretadao-site/ # a aplicação
+fretadao-site/ # the application
 ```
 
-## Fluxo de desenvolvimento (SDD)
+## Development flow (SDD)
 
-Comandos em `.claude/commands/`, usados no Claude Code nesta ordem:
+The commands live in `.claude/commands/` and are run in Claude Code in this order. Their names and prompts are in Portuguese:
 
-1. **`/criar-prd`**: requisitos a partir do design em `site/`, gerando `prd.md`
-2. **`/criar-techspec`**: decisões técnicas e arquitetura, gerando `techspec.md`
-3. **`/criar-tasks`**: tarefas incrementais, cada uma com testes, gerando `tasks.md` e `N_task.md`
-4. **`/executar-task`**: implementa uma task; o agente `task-reviewer` gera `N_task_review.md`
-5. **`/executar-review`**: code review geral, gerando `review-report.md`
-6. **`/executar-qa`**: validação com Playwright, WCAG 2.2 e análise visual, gerando `qa-report.md`
-7. **`/executar-bugfix`**: corrige o que estiver em `bugs.md`, com testes de regressão
+1. **`/criar-prd`** (create PRD): turns the design in `site/` into requirements and writes `prd.md`
+2. **`/criar-techspec`** (create tech spec): makes the technical and architecture decisions and writes `techspec.md`
+3. **`/criar-tasks`** (create tasks): splits the work into incremental tasks, each with its own tests, and writes `tasks.md` and `N_task.md`
+4. **`/executar-task`** (run task): implements one task, then the `task-reviewer` agent writes `N_task_review.md`
+5. **`/executar-review`** (run review): reviews all the code and writes `review-report.md`
+6. **`/executar-qa`** (run QA): checks the site with Playwright, against WCAG 2.2 and visually, then writes `qa-report.md`
+7. **`/executar-bugfix`** (run bugfix): fixes everything listed in `bugs.md` and adds regression tests
 
-## Convenções
+## Conventions
 
-Regras completas em `.claude/rules/`. Em resumo:
+The full rules are in `.claude/rules/`. In short:
 
-- **Tema antes de componentes**: nada de estilo, cor ou fonte inline; textos centralizados em `constants/strings.ts`
-- **TypeScript**: `strict: true`, sem `any`
-- **Testes**: `should <comportamento> when <condição>`, Arrange-Act-Assert, RTL testando o que o usuário vê
-- **Git**: Conventional Commits e branches `feature/…`, `fix/…`, `chore/…`
+- **Theme before components:** no inline styles, colors or fonts, and all copy lives in `constants/strings.ts`
+- **TypeScript:** `strict: true`, no `any`
+- **Tests:** names follow `should <behavior> when <condition>`, use Arrange-Act-Assert, and React Testing Library checks what the user actually sees
+- **Git:** Conventional Commits, with branches named `feature/…`, `fix/…` and `chore/…`
