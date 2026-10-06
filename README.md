@@ -145,15 +145,15 @@ fretadao-site/ # the application
 
 ## Development flow (SDD)
 
-The commands live in `.claude/commands/` and are run in Claude Code in this order. Their names are in Portuguese and their prompts are in English:
+The commands live in `.claude/commands/` and are run in Claude Code in this order. Their names and prompts are in English:
 
-1. **`/criar-prd`** (create PRD): turns the design in `site/` into requirements and writes `prd.md`
-2. **`/criar-techspec`** (create tech spec): makes the technical and architecture decisions and writes `techspec.md`
-3. **`/criar-tasks`** (create tasks): splits the work into incremental tasks, each with its own tests, and writes `tasks.md` and `N_task.md`
-4. **`/executar-task`** (run task): implements one task, then the `task-reviewer` agent writes `N_task_review.md`
-5. **`/executar-review`** (run review): reviews all the code and writes `review-report.md`
-6. **`/executar-qa`** (run QA): checks the site with Playwright, against WCAG 2.2 and visually, then writes `qa-report.md`
-7. **`/executar-bugfix`** (run bugfix): fixes everything listed in `bugs.md` and adds regression tests
+1. **`/create-prd`**: turns the design in `site/` into requirements and writes `prd.md`
+2. **`/create-techspec`**: makes the technical and architecture decisions and writes `techspec.md`
+3. **`/create-tasks`**: splits the work into incremental tasks, each with its own tests, and writes `tasks.md` and `N_task.md`
+4. **`/run-task`**: implements one task, then the `task-reviewer` agent writes `N_task_review.md`
+5. **`/run-review`**: reviews all the code and writes `review-report.md`
+6. **`/run-qa`**: checks the site with Playwright, against WCAG 2.2 and visually, then writes `qa-report.md`
+7. **`/run-bugfix`**: fixes everything listed in `bugs.md` and adds regression tests
 
 ## Conventions
 
