@@ -1,7 +1,7 @@
-# Resumo de Tarefas de Implementação de [Funcionalidade]
+# [Feature] Implementation Task Summary
 
-## Tarefas
+## Tasks
 
-- [ ] 1.0 Título da Tarefa
-- [ ] 2.0 Título da Tarefa
-- [ ] 3.0 Título da Tarefa
+- [ ] 1.0 Task Title
+- [ ] 2.0 Task Title
+- [ ] 3.0 Task Title

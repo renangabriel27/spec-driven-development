@@ -1,129 +1,129 @@
-# Template de Especificação Técnica
+# Technical Specification Template
 
-## Resumo Executivo
+## Executive Summary
 
-[Forneça uma breve visão técnica da abordagem de solução. Resuma as decisões arquiteturais principais e a estratégia de implementação em 1-2 parágrafos.]
+[Provide a brief technical overview of the solution approach. Summarize the main architectural decisions and the implementation strategy in 1-2 paragraphs.]
 
-## Arquitetura do Sistema
+## System Architecture
 
-### Visão Geral dos Componentes
+### Component Overview
 
-[Breve descrição dos componentes principais e suas responsabilidades:
+[Brief description of the main components and their responsibilities:
 
-- Nomes dos componentes e funções primárias **Não deixe de listar cada um dos componentes novos ou que serão modificados**
-- Relacionamentos principais entre componentes
-- Visão geral do fluxo de dados]
+- Component names and primary functions **Make sure to list every new component and every component that will be modified**
+- Main relationships between components
+- Data flow overview]
 
-## Design de Implementação
+## Implementation Design
 
-### Interfaces Principais
+### Main Interfaces
 
-[Defina interfaces de serviço principais (≤20 linhas por exemplo):
+[Define the main service interfaces (≤20 lines per example):
 
 ```go
-// Exemplo de definição de interface
-type NomeServico interface {
-    NomeMetodo(ctx context.Context, entrada Tipo) (saida Tipo, error)
+// Example interface definition
+type ServiceName interface {
+    MethodName(ctx context.Context, input Type) (output Type, error)
 }
 ```
 
 ]
 
-### Modelos de Dados
+### Data Models
 
-[Defina estruturas de dados essenciais:
+[Define the essential data structures:
 
-- Entidades de domínio principais (se aplicável)
-- Tipos de requisição/resposta
-- Esquemas de banco de dados (se aplicável)]
+- Main domain entities (if applicable)
+- Request/response types
+- Database schemas (if applicable)]
 
-### Endpoints de API
+### API Endpoints
 
-[Liste endpoints de API se aplicável:
+[List the API endpoints, if applicable:
 
-- Método e caminho (ex: `POST /api/v0/recurso`)
-- Breve descrição
-- Referências de formato requisição/resposta]
+- Method and path (e.g. `POST /api/v0/resource`)
+- Brief description
+- Request/response format references]
 
-## Pontos de Integração
+## Integration Points
 
-[Inclua apenas se a funcionalidade requer integrações externas:
+[Include only if the feature requires external integrations:
 
-- Serviços ou APIs externos
-- Requisitos de autenticação
-- Abordagem de tratamento de erros]
+- External services or APIs
+- Authentication requirements
+- Error handling approach]
 
-## Abordagem de Testes
+## Testing Approach
 
-### Testes Unidade
+### Unit Tests
 
-[Descreva estratégia de testes unidade:
+[Describe the unit testing strategy:
 
-- Componentes principais a testar
-- Requisitos de mock (apenas serviços externos)
-- Cenários de teste críticos]
+- Main components to test
+- Mocking requirements (external services only)
+- Critical test scenarios]
 
-### Testes de Integração
+### Integration Tests
 
-[Se necessário, descreva testes de integração:
+[If needed, describe the integration tests:
 
-- Componentes a testar juntos
-- Requisitos de dados de teste]
+- Components to test together
+- Test data requirements]
 
-### Testes de E2E
+### E2E Tests
 
-[Se necessário, descreva testes E2E:
+[If needed, describe the E2E tests:
 
-- Teste o frontend junto com o backend **usando o Playwright**]
+- Test the frontend together with the backend **using Playwright**]
 
-## Sequenciamento de Desenvolvimento
+## Development Sequencing
 
-### Ordem de Construção
+### Build Order
 
-[Defina sequência de implementação:
+[Define the implementation sequence:
 
-1. Primeiro componente/funcionalidade (por que primeiro)
-2. Segundo componente/funcionalidade (dependências)
-3. Componentes subsequentes
-4. Integração e testes]
+1. First component/feature (why first)
+2. Second component/feature (dependencies)
+3. Subsequent components
+4. Integration and testing]
 
-### Dependências Técnicas
+### Technical Dependencies
 
-[Liste quaisquer dependências bloqueantes:
+[List any blocking dependencies:
 
-- Infraestrutura requerida
-- Disponibilidade de serviço externo]
+- Required infrastructure
+- External service availability]
 
-## Monitoramento e Observabilidade
+## Monitoring and Observability
 
-[Defina abordagem de monitoramento usando infraestrutura existente:
+[Define the monitoring approach using the existing infrastructure:
 
-- Métricas a expor (formato Prometheus)
-- Logs principais e níveis de log
-- Integração com dashboards Grafana existentes]
+- Metrics to expose (Prometheus format)
+- Main logs and log levels
+- Integration with existing Grafana dashboards]
 
-## Considerações Técnicas
+## Technical Considerations
 
-### Decisões Principais
+### Key Decisions
 
-[Documente decisões técnicas importantes:
+[Document important technical decisions:
 
-- Escolha de abordagem e justificativa
-- Trade-offs considerados
-- Alternativas rejeitadas e por quê]
+- Chosen approach and rationale
+- Trade-offs considered
+- Rejected alternatives and why]
 
-### Riscos Conhecidos
+### Known Risks
 
-[Identifique riscos técnicos:
+[Identify technical risks:
 
-- Desafios potenciais
-- Abordagens de mitigação
-- Áreas precisando pesquisa]
+- Potential challenges
+- Mitigation approaches
+- Areas needing research]
 
-### Conformidade com Padrões
+### Standards Compliance
 
-[Pesquisa as rules na pasta @.claude/rules que se encaixam e se apliquem nesta techspec e liste-as abaixo:]
+[Search the rules in the @.claude/rules folder that fit and apply to this tech spec and list them below:]
 
-### Arquivos relevantes e dependentes
+### Relevant and Dependent Files
 
-[Liste aqui arquivos relevantes e dependentes]
+[List the relevant and dependent files here]

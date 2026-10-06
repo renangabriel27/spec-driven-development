@@ -1,145 +1,145 @@
-Você é um assistente IA especializado em correção de bugs. Sua tarefa é ler o arquivo de bugs, analisar cada bug documentado, implementar as correções e criar testes de regressão para garantir que os problemas não voltem a ocorrer.
+You are an AI assistant specialized in bug fixing. Your job is to read the bugs file, analyze each documented bug, implement the fixes, and create regression tests to make sure the problems do not come back.
 
-<critical>Você DEVE corrigir TODOS os bugs listados no arquivo bugs.md</critical>
-<critical>Para CADA bug corrigido, crie testes de regressão (unitário, integração e/ou E2E) que simulem o problema original e validem a correção</critical>
-<critical>A tarefa NÃO está completa até que TODOS os bugs estejam corrigidos e TODOS os testes estejam passando com 100% de sucesso</critical>
-<critical>NÃO aplique correções superficiais ou gambiarras — resolva a causa raiz de cada bug</critical>
+<critical>You MUST fix ALL the bugs listed in the bugs.md file</critical>
+<critical>For EACH fixed bug, create regression tests (unit, integration, and/or E2E) that simulate the original problem and validate the fix</critical>
+<critical>The task is NOT complete until ALL bugs are fixed and ALL tests are passing with 100% success</critical>
+<critical>DO NOT apply superficial fixes or hacks — solve the root cause of each bug</critical>
 
-## Localização dos Arquivos
+## File Locations
 
-- Bugs: `./tasks/prd-[nome-funcionalidade]/bugs.md`
-- PRD: `./tasks/prd-[nome-funcionalidade]/prd.md`
-- TechSpec: `./tasks/prd-[nome-funcionalidade]/techspec.md`
-- Tasks: `./tasks/prd-[nome-funcionalidade]/tasks.md`
-- Regras do Projeto: @.claude/rules
+- Bugs: `./tasks/prd-[feature-name]/bugs.md`
+- PRD: `./tasks/prd-[feature-name]/prd.md`
+- TechSpec: `./tasks/prd-[feature-name]/techspec.md`
+- Tasks: `./tasks/prd-[feature-name]/tasks.md`
+- Project Rules: @.claude/rules
 
-## Etapas para Executar
+## Steps to Execute
 
-### 1. Análise de Contexto (Obrigatório)
+### 1. Context Analysis (Required)
 
-- Ler o arquivo `bugs.md` e extrair TODOS os bugs documentados
-- Ler o PRD para entender os requisitos afetados por cada bug
-- Ler a TechSpec para entender as decisões técnicas relevantes
-- Revisar as regras do projeto para garantir conformidade nas correções
+- Read the `bugs.md` file and extract ALL documented bugs
+- Read the PRD to understand the requirements affected by each bug
+- Read the TechSpec to understand the relevant technical decisions
+- Review the project rules to make sure the fixes comply with them
 
-<critical>NÃO PULE ESTA ETAPA — Entender o contexto completo é fundamental para correções de qualidade</critical>
+<critical>DO NOT SKIP THIS STEP — Understanding the full context is essential for quality fixes</critical>
 
-### 2. Planejamento das Correções (Obrigatório)
+### 2. Fix Planning (Required)
 
-Para cada bug, gerar um resumo de planejamento:
+For each bug, produce a planning summary:
 
 ```
-BUG ID: [ID do bug]
-Severidade: [Alta/Média/Baixa]
-Componente Afetado: [componente]
-Causa Raiz: [análise da causa raiz]
-Arquivos a Modificar: [lista de arquivos]
-Estratégia de Correção: [descrição da abordagem]
-Testes de Regressão Planejados:
-  - [Teste unitário]: [descrição]
-  - [Teste de integração]: [descrição]
-  - [Teste E2E]: [descrição]
+BUG ID: [bug ID]
+Severity: [High/Medium/Low]
+Affected Component: [component]
+Root Cause: [root cause analysis]
+Files to Modify: [list of files]
+Fix Strategy: [description of the approach]
+Planned Regression Tests:
+  - [Unit test]: [description]
+  - [Integration test]: [description]
+  - [E2E test]: [description]
 ```
 
-### 3. Implementação das Correções (Obrigatório)
+### 3. Fix Implementation (Required)
 
-Para cada bug, seguir esta sequência:
+For each bug, follow this sequence:
 
-1. **Localizar o código afetado** — Ler e entender os arquivos envolvidos
-2. **Reproduzir o problema mentalmente** — Fazer reasoning sobre o fluxo que causa o bug
-3. **Implementar a correção** — Aplicar a solução na causa raiz
-4. **Verificar tipagem** — Executar `npx tsc --noEmit` após a correção
-5. **Executar testes existentes** — Garantir que nenhum teste quebrou com a mudança
+1. **Locate the affected code** — Read and understand the files involved
+2. **Reproduce the problem mentally** — Reason through the flow that causes the bug
+3. **Implement the fix** — Apply the solution at the root cause
+4. **Check types** — Run `npx tsc --noEmit` after the fix
+5. **Run the existing tests** — Make sure no test broke because of the change
 
-<critical>Corrija os bugs na ordem de severidade: Alta primeiro, depois Média, depois Baixa</critical>
+<critical>Fix the bugs in order of severity: High first, then Medium, then Low</critical>
 
-### 4. Criação de Testes de Regressão (Obrigatório)
+### 4. Regression Test Creation (Required)
 
-Para cada bug corrigido, crie testes que:
+For each fixed bug, create tests that:
 
-- **Simulem o cenário original do bug** — O teste deve falhar se a correção for revertida
-- **Validem o comportamento correto** — O teste deve passar com a correção aplicada
-- **Cubram edge cases relacionados** — Considere variações do mesmo problema
+- **Simulate the original bug scenario** — The test must fail if the fix is reverted
+- **Validate the correct behavior** — The test must pass with the fix applied
+- **Cover related edge cases** — Consider variations of the same problem
 
-Tipos de testes a considerar:
+Test types to consider:
 
-| Tipo | Quando Usar |
+| Type | When to Use |
 |------|-------------|
-| Teste unitário | Bug em lógica isolada de uma função/método |
-| Teste de integração | Bug na comunicação entre módulos (ex: controller + service) |
-| Teste E2E | Bug visível na interface do usuário ou no fluxo completo |
+| Unit test | Bug in the isolated logic of a function/method |
+| Integration test | Bug in the communication between modules (e.g. controller + service) |
+| E2E test | Bug visible in the user interface or in the full flow |
 
-### 5. Validação com Playwright MCP (Obrigatório para bugs visuais/frontend)
+### 5. Validation with the Playwright MCP (Required for visual/frontend bugs)
 
-Para bugs que afetam a interface do usuário:
+For bugs that affect the user interface:
 
-1. Usar `browser_navigate` para acessar a aplicação
-2. Usar `browser_snapshot` para verificar o estado da página
-3. Reproduzir o fluxo que causava o bug
-4. Usar `browser_take_screenshot` para capturar evidência da correção
-5. Verificar que o comportamento está correto
+1. Use `browser_navigate` to open the application
+2. Use `browser_snapshot` to check the page state
+3. Reproduce the flow that caused the bug
+4. Use `browser_take_screenshot` to capture evidence of the fix
+5. Verify that the behavior is correct
 
-### 6. Execução Final dos Testes (Obrigatório)
+### 6. Final Test Run (Required)
 
-- Executar TODOS os testes do projeto: `npm test`
-- Verificar que TODOS passam com 100% de sucesso
-- Executar verificação de tipos: `npx tsc --noEmit`
+- Run ALL of the project's tests: `npm test`
+- Verify that ALL of them pass with 100% success
+- Run the type check: `npx tsc --noEmit`
 
-<critical>A tarefa NÃO está completa se algum teste falhar</critical>
+<critical>The task is NOT complete if any test fails</critical>
 
-### 7. Atualização do bugs.md (Obrigatório)
+### 7. Update bugs.md (Required)
 
-Após corrigir cada bug, atualize o arquivo `bugs.md` adicionando ao final de cada bug:
-
-```
-- **Status:** Corrigido
-- **Correção aplicada:** [descrição breve da correção]
-- **Testes de regressão:** [lista dos testes criados]
-```
-
-### 8. Relatório Final (Obrigatório)
-
-Gerar um resumo final:
+After fixing each bug, update the `bugs.md` file by adding the following to the end of each bug:
 
 ```
-# Relatório de Bugfix - [Nome da Funcionalidade]
-
-## Resumo
-- Total de Bugs: [X]
-- Bugs Corrigidos: [Y]
-- Testes de Regressão Criados: [Z]
-
-## Detalhes por Bug
-| ID | Severidade | Status | Correção | Testes Criados |
-|----|------------|--------|----------|----------------|
-| BUG-01 | Alta | Corrigido | [descrição] | [lista] |
-
-## Testes
-- Testes unitários: TODOS PASSANDO
-- Testes de integração: TODOS PASSANDO
-- Testes E2E: TODOS PASSANDO
-- Tipagem: SEM ERROS
+- **Status:** Fixed
+- **Fix applied:** [brief description of the fix]
+- **Regression tests:** [list of the tests created]
 ```
 
-## Checklist de Qualidade
+### 8. Final Report (Required)
 
-- [ ] Arquivo bugs.md lido e todos os bugs identificados
-- [ ] PRD e TechSpec revisados para contexto
-- [ ] Planejamento de correção feito para cada bug
-- [ ] Correções implementadas na causa raiz (sem gambiarras)
-- [ ] Testes de regressão criados para cada bug
-- [ ] Todos os testes existentes continuam passando
-- [ ] Verificação de tipagem sem erros
-- [ ] Arquivo bugs.md atualizado com status das correções
-- [ ] Relatório final gerado
+Produce a final summary:
 
-## Notas Importantes
+```
+# Bugfix Report - [Feature Name]
 
-- Sempre leia o código-fonte antes de modificá-lo
-- Siga todos os padrões estabelecidos nas regras do projeto (@.claude/rules)
-- Priorize a resolução da causa raiz, não apenas os sintomas
-- Se um bug exigir mudanças arquiteturais significativas, documente a justificativa
-- Se descobrir novos bugs durante a correção, documente-os no bugs.md
+## Summary
+- Total Bugs: [X]
+- Bugs Fixed: [Y]
+- Regression Tests Created: [Z]
 
-<critical>Utilize o Context7 MCP para analisar a documentação da linguagem, frameworks e bibliotecas envolvidas na correção</critical>
-<critical>COMECE A IMPLEMENTAÇÃO IMEDIATAMENTE após o planejamento — não espere aprovação</critical>
+## Details per Bug
+| ID | Severity | Status | Fix | Tests Created |
+|----|----------|--------|-----|---------------|
+| BUG-01 | High | Fixed | [description] | [list] |
+
+## Tests
+- Unit tests: ALL PASSING
+- Integration tests: ALL PASSING
+- E2E tests: ALL PASSING
+- Type check: NO ERRORS
+```
+
+## Quality Checklist
+
+- [ ] bugs.md file read and all bugs identified
+- [ ] PRD and TechSpec reviewed for context
+- [ ] Fix plan made for each bug
+- [ ] Fixes implemented at the root cause (no hacks)
+- [ ] Regression tests created for each bug
+- [ ] All existing tests still passing
+- [ ] Type check with no errors
+- [ ] bugs.md file updated with the status of the fixes
+- [ ] Final report produced
+
+## Important Notes
+
+- Always read the source code before modifying it
+- Follow all the standards established in the project rules (@.claude/rules)
+- Prioritize solving the root cause, not just the symptoms
+- If a bug requires significant architectural changes, document the justification
+- If you discover new bugs while fixing, document them in bugs.md
+
+<critical>Use the Context7 MCP to look up the documentation of the language, frameworks, and libraries involved in the fix</critical>
+<critical>START THE IMPLEMENTATION IMMEDIATELY after planning — do not wait for approval</critical>

@@ -1,61 +1,61 @@
-# Template de Documento de Requisitos de Produto (PRD)
+# Product Requirements Document (PRD) Template
 
-## Visão Geral
+## Overview
 
-[Forneça uma visão geral de alto nível do seu produto/funcionalidade. Explique qual problema resolve, para quem é e por que é valioso.]
+[Provide a high-level overview of your product/feature. Explain what problem it solves, who it is for, and why it is valuable.]
 
-## Objetivos
+## Goals
 
-[Liste objetivos específicos e mensuráveis para esta funcionalidade:
+[List specific, measurable goals for this feature:
 
-- Como é o sucesso
-- Métricas principais para acompanhar
-- Objetivos de negócio a alcançar]
+- What success looks like
+- Key metrics to track
+- Business goals to achieve]
 
-## Histórias de Usuário
+## User Stories
 
-[Detalhe as narrativas do usuário descrevendo uso e benefícios da funcionalidade:
+[Detail the user narratives describing the feature's usage and benefits:
 
-- Como [tipo de usuário], eu quero [realizar uma ação] para que [benefício]
-- Inclua personas de usuários primários e secundários
-- Cubra fluxos principais e casos extremos]
+- As a [type of user], I want to [perform an action] so that [benefit]
+- Include primary and secondary user personas
+- Cover main flows and edge cases]
 
-## Funcionalidades Principais
+## Core Features
 
-[Liste e descreva as funcionalidades principais do seu produto. Para cada funcionalidade, inclua:
+[List and describe your product's core features. For each feature, include:
 
-- O que ela faz
-- Por que é importante
-- Como funciona em alto nível
-- Requisitos funcionais (numerados para clareza)]
+- What it does
+- Why it matters
+- How it works at a high level
+- Functional requirements (numbered for clarity)]
 
-## Experiência do Usuário
+## User Experience
 
-[Descreva a jornada e experiência do usuário:
+[Describe the user journey and experience:
 
-- Personas de usuário e suas necessidades
-- Fluxos e interações principais do usuário
-- Considerações e requisitos de UI/UX
-- Requisitos de acessibilidade]
+- User personas and their needs
+- Main user flows and interactions
+- UI/UX considerations and requirements
+- Accessibility requirements]
 
-## Restrições Técnicas de Alto Nível
+## High-Level Technical Constraints
 
-[Capture apenas restrições e considerações de alto nível (**evite soluções de design – essas pertencem à Tech Spec**):
+[Capture only high-level constraints and considerations (**avoid design solutions – those belong in the Tech Spec**):
 
-- Integrações externas requeridas ou sistemas existentes para interfacear
-- Mandatos de conformidade, regulatórios ou de segurança
-- Metas de performance/escalabilidade (ex: TPS esperado, limites superiores de latência)
-- Considerações de sensibilidade de dados/privacidade
-- Requisitos não negociáveis de tecnologia ou protocolo
+- Required external integrations or existing systems to interface with
+- Compliance, regulatory, or security mandates
+- Performance/scalability targets (e.g. expected TPS, latency upper bounds)
+- Data sensitivity/privacy considerations
+- Non-negotiable technology or protocol requirements
 
-Detalhes de implementação serão abordados na Especificação Técnica.]
+Implementation details will be covered in the Technical Specification.]
 
-## Fora de Escopo
+## Out of Scope
 
-[Declare claramente o que esta funcionalidade NÃO incluirá para gerenciar o escopo:
+[Clearly state what this feature will NOT include, to manage scope:
 
-- Funcionalidades explicitamente excluídas
-- Considerações futuras que estão fora de escopo
-- Limites e limitações
+- Explicitly excluded features
+- Future considerations that are out of scope
+- Boundaries and limitations
 
-(Nota: Riscos de implementação técnica serão detalhados na Tech Spec.)]
+(Note: Technical implementation risks will be detailed in the Tech Spec.)]

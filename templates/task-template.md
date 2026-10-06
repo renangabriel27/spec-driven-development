@@ -1,35 +1,35 @@
-# Tarefa X.0: [Título da Tarefa]
+# Task X.0: [Task Title]
 
-<critical>Ler os arquivos de prd.md e techspec.md desta pasta, se você não ler esses arquivos sua tarefa será invalidada</critical>
+<critical>Read the prd.md and techspec.md files in this folder; if you do not read them, your task will be invalidated</critical>
 
-## Visão Geral
+## Overview
 
-[Breve descrição da tarefa]
+[Brief description of the task]
 
 <requirements>
-[Lista de requisitos obrigatórios]
+[List of mandatory requirements]
 </requirements>
 
-## Subtarefas
+## Subtasks
 
-- [ ] X.1 [Descrição da subtarefa]
-- [ ] X.2 [Descrição da subtarefa]
+- [ ] X.1 [Subtask description]
+- [ ] X.2 [Subtask description]
 
-## Detalhes de Implementação
+## Implementation Details
 
-[Seções relevantes da spec técnica **NÃO PRECISA MOSTRAR TODA A IMPLEMENTAÇÃO, APENAS REFERENCIE A techspec.md**]
+[Relevant sections of the tech spec **NO NEED TO SHOW THE WHOLE IMPLEMENTATION, JUST REFERENCE techspec.md**]
 
-## Critérios de Sucesso
+## Success Criteria
 
-- [Resultados mensuráveis]
-- [Requisitos de qualidade]
+- [Measurable outcomes]
+- [Quality requirements]
 
-## Testes da Tarefa
+## Task Tests
 
-- [ ] Testes de unidade
-- [ ] Testes de integração
+- [ ] Unit tests
+- [ ] Integration tests
 
-<critical>SEMPRE CRIE E EXECUTE OS TESTES DA TAREFA ANTES DE CONSIDERÁ-LA FINALIZADA</critical>
+<critical>ALWAYS CREATE AND RUN THE TASK'S TESTS BEFORE CONSIDERING IT DONE</critical>
 
-## Arquivos relevantes
-- [Arquivos relevantes desta tarefa]
+## Relevant Files
+- [Files relevant to this task]
